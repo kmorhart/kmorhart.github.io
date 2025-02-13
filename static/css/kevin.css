@@ -1,9 +1,13 @@
 @font-face {
-    font-family: Closer;
-    src: url('closer.otf');
+    font-family: "Closer";
+    src: url('closer.otf') format('opentype');
 }
 
-/* Set body to cover the whole page and apply the background image */
+@font-face {
+    font-family: "Magules";
+    src: url('magules.ttf') format('truetype');
+}
+
 html, body {
     overflow-x: hidden;
     margin: 0;
@@ -11,23 +15,23 @@ html, body {
 }
 
 body {
-    background-image: url('../images/backdrop.jpg'); /* Replace with your image path */
-    background-size: cover; /* Ensures the image covers the viewport */
-    background-position: top; /* Centers the background image */
-    background-attachment: fixed; /* Keeps the image fixed while scrolling */
-    margin: 0; /* Removes default margin */
-    font-family: Arial, sans-serif; /* Basic font styling */
-    color: white; /* Text color to stand out against the background */
+    background-image: url('../images/backdrop.jpg');
+    background-size: cover;
+    background-position: top;
+    background-attachment: fixed;
+    font-family: "Magules";
+    color: white;
 }
 
-  /* Basic header styling (using div for header) */
 .header {
-    position: relative;
+    position: absolute;
     width: 100%;
     height: 82px;
-    background-color: rgba(255, 245, 238, 0.651); /* Semi-transparent background for header */
+    background-color: rgba(255, 245, 238, 0.651);
     padding: 20px;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 @keyframes swirl {
@@ -36,47 +40,56 @@ body {
     100% { background-position: 0% 0%; }
 }
 
-
 .header h1 {
-    position: relative;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     height: 100%;
-    margin: 0;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.first-name, .last-name {
     font-family: Closer;
     font-size: 8rem;
     color: rgb(37, 37, 37);
-    flex-wrap: nowrap;
-    overflow: hidden;
     white-space: nowrap;
     background: radial-gradient(circle, rgb(92, 37, 119), rgb(43, 43, 105), #551644, rgb(91, 23, 137));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-size: 200% 200%;
     animation: swirl 10s infinite cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    text-align: center;
+    line-height: 1; /* Consistent line height */
 }
 
-.title {
-    position: relative;
-    width: 50%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: transparent;
+.first-name {
+    margin-right: 0.5rem; /* Adjust spacing between names */
+}
+
+.last-name {
+    margin-left: 0.5rem; /* Adjust spacing between names */
 }
 
 .footer {
-    position: relative;
+    position: absolute;
     background-color: rgba(0, 0, 0, 0.5);
     padding: 20px;
     text-align: center;
     bottom: 0;
     width: 100%;
 }
-  
+
 .footer p {
     margin: 0;
 }
-  
+
 main {
     padding: 20px;
     text-align: center;
