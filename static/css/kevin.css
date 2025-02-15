@@ -26,9 +26,8 @@ body {
 .header {
     position: absolute;
     width: 100%;
-    height: 82px;
+    height: 100px;
     background-color: rgba(255, 245, 238, 0.651);
-    padding: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -53,6 +52,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-grow: 1;
 }
 
 .first-name, .last-name {
@@ -62,19 +62,66 @@ body {
     white-space: nowrap;
     background: radial-gradient(circle, rgb(92, 37, 119), rgb(43, 43, 105), #551644, rgb(91, 23, 137));
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     background-size: 200% 200%;
     animation: swirl 10s infinite cubic-bezier(0.455, 0.03, 0.515, 0.955);
     text-align: center;
-    line-height: 1; /* Consistent line height */
+    line-height: 1;
 }
 
 .first-name {
-    margin-right: 0.5rem; /* Adjust spacing between names */
+    margin-right: 0.5rem;
 }
 
 .last-name {
-    margin-left: 0.5rem; /* Adjust spacing between names */
+    margin-left: 0.5rem;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-links.left {
+    margin-right: auto;
+}
+
+.nav-links.right {
+    right: 0%;
+    margin-left: auto;
+}
+
+.nav-links li {
+    margin: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: rgb(37, 37, 37);
+    font-size: 1.2rem;
+    font-family: "Magules";
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger .bar {
+    width: 25px;
+    height: 3px;
+    background-color: rgb(37, 37, 37);
+    margin: 4px 0;
 }
 
 .footer {
@@ -100,4 +147,64 @@ main {
     padding: 20px;
     text-align: center;
     background-color: rgba(0, 0, 0, 0.4);
+    margin-top: 100px; /* Adjust to avoid clipping with header */
+    overflow: hidden; /* Prevent overflow */
+}
+
+/* Side Navigation */
+.side-nav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.side-nav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.side-nav a:hover {
+    color: #f1f1f1;
+}
+
+.side-nav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .last-name {
+        display: none;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .title {
+        order: 1;
+    }
+
+    .nav-links.left, .nav-links.right {
+        order: 2;
+    }
 }

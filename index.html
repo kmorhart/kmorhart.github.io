@@ -1,56 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kevin Morhart</title>
-    <link rel="stylesheet" href="./static/css/kevin.css">
-    <link rel="icon" type="image/x-icon" href="./static/images/favicon.png">
-</head>
-<body>
-    <div class="header">
-      <div class="title">
-            <h1>
-                <span class="first-name">Kevin</span>
-                <span class="last-name">Morhart</span>
-            </h1>
-            <script>
-                document.addEventListener('DOMContentLoaded', function() {
-                    function adjustWords() {
-                        const container = document.querySelector('.title');
-                        const firstWord = document.querySelector('.first-name');
-                        const secondWord = document.querySelector('.last-name');
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Kevin Morhart</title>
+        <link rel="stylesheet" href="./static/css/kevin.css">
+        <link rel="icon" type="image/x-icon" href="./static/images/favicon.png">
+    </head>
+    <body>
+        <div class="header">
+            <nav class="navbar">
+                <ul class="nav-links left">
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#work">Work</a></li>
+                </ul>
+                <div class="title">
+                    <h1>
+                        <span class="first-name">Kevin</span>
+                        <span class="last-name">Morhart</span>
+                    </h1>
+                </div>
+                <ul class="nav-links right">
+                    <li><a href="#about">About</a></li>
+                </ul>
+                <div class="hamburger">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+            </nav>
+        </div>
 
-                        console.log(container.clientWidth, firstWord.clientWidth, secondWord.clientWidth)
+        <div id="side-nav" class="side-nav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="#projects">Projects</a>
+            <a href="#work">Work</a>
+            <a href="#about">About</a>
+        </div>
 
-                        secondWord.style.display = 'none';
-
-                        if (container.clientWidth >= ( firstWord.clientWidth + secondWord.clientWidth )) {
-                            secondWord.style.display = 'inline';
-                        }
-                    }
-
-                    // Run on load
-                    adjustWords();
-
-                    // Run on window resize
-                    window.addEventListener('resize', adjustWords);
-                });
-            </script>
-      </div>
-    </div>
-
-    <main>
-        <section class="content">
-            <h2>Main Content</h2>
-            <p>This is the content of the page. Scroll down to see more.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus eu arcu vehicula aliquam...</p>
-            <!-- Add more content here as needed to enable scrolling -->
+        <section id="projects" class="content">
+            <h2>Projects</h2>
+            <p>Details about projects...</p>
         </section>
-    </main>
+        <section id="work" class="content">
+            <h2>Work</h2>
+            <p>Details about work...</p>
+        </section>
+        <section id="about" class="content">
+            <h2>About</h2>
+            <p>Details about me...</p>
+        </section>
 
-    <div class="footer">
-        <p>Footer content goes here.</p>
-    </div>
-</body>
+        <div class="footer">
+            <p>Footer content goes here.</p>
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const hamburger = document.querySelector('.hamburger');
+
+                hamburger.addEventListener('click', () => {
+                    document.getElementById("side-nav").style.width = "250px";
+                });
+            });
+
+            function closeNav() {
+                document.getElementById("side-nav").style.width = "0";
+            }
+        </script>
+    </body>
 </html>
